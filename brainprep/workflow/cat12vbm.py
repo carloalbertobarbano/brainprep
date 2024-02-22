@@ -73,7 +73,10 @@ def brainprep_cat12vbm(
     print_title("Complete matlab batch...")
     batch_file = os.path.join(outdir, "cat12vbm_matlabbatch.m")
     anatomical = listify(anatomical)
-    session = listify(session)
+
+    if session is not None:
+        session = listify(session)
+
     resource_dir = os.path.join(
         os.path.dirname(brainprep.__file__), "resources")
     if not longitudinal:
