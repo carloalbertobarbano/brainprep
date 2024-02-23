@@ -44,7 +44,7 @@ def main(working_dir):
         cmds = "export WDIR={}\n".format(dest_dir)
         cmds += "cd $WDIR\n"
         cmds += "export IMG={}\n".format(name)
-        cmds += "sudo docker build --no-cache --tag brainprep-$IMG .\n"
+        cmds += "sudo docker build --no-cache --tag brainprep-$IMG:{0} .\n".format(today)
         cmds += "sudo docker images\n"
         cmds += ("sudo docker save -o brainprep-$IMG-{0}.tar "
                  "brainprep-$IMG:{0}\n".format(today))
